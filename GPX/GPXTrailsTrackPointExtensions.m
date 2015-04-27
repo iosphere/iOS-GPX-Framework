@@ -34,11 +34,11 @@ NSString *const kElementVerticalAcc = @"trailsio:vacc";
 
 #pragma mark - Public methods
 - (void)setHorizontalAccuracy:(NSNumber *)horizontalAccuracy {
-    _horizontalAccuracyString = [NSString stringWithFormat:@"%f", [horizontalAccuracy doubleValue]];
+    _horizontalAccuracyString = [NSString stringWithFormat:@"%.2f", [horizontalAccuracy doubleValue]];
 }
 
 - (void)setVerticalAccuracy:(NSNumber *)verticalAccuracy {
-    _verticalAccuracyString = [NSString stringWithFormat:@"%f", [verticalAccuracy doubleValue]];
+    _verticalAccuracyString = [NSString stringWithFormat:@"%.2f", [verticalAccuracy doubleValue]];
 }
 
 - (NSNumber *)horizontalAccuracy {
