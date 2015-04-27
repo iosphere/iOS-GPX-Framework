@@ -11,6 +11,6 @@
 @interface GPXTrailsMetaDataExtensions : GPXElement
 
 /* see: https://trails.io/GPX/1/0/trails_1.0.xsd */
-@property (nonatomic, strong) NSString *activityTypeString;
+@property (nonatomic) NSString *activityTypeString;
 
 @end

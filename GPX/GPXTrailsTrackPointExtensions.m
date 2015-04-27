@@ -11,8 +11,8 @@
 
 @interface GPXTrailsTrackPointExtensions ()
 
-@property (nonatomic, strong) NSString *horizontalAccuracyString;
-@property (nonatomic, strong) NSString *verticalAccuracyString;
+@property (nonatomic) NSString *horizontalAccuracyString;
+@property (nonatomic) NSString *verticalAccuracyString;
 
 @end
 

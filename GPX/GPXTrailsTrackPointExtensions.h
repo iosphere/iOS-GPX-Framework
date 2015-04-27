@@ -11,7 +11,7 @@
 @interface GPXTrailsTrackPointExtensions : GPXElement
 
 /* see: https://trails.io/GPX/1/0/trails_1.0.xsd */
-@property (nonatomic, strong) NSNumber *horizontalAccuracy;
-@property (nonatomic, strong) NSNumber *verticalAccuracy;
+@property (nonatomic) NSNumber *horizontalAccuracy;
+@property (nonatomic) NSNumber *verticalAccuracy;
 
 @end
