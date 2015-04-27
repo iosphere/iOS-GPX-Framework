@@ -15,12 +15,13 @@
 
 @implementation GPXTrailsMetaDataExtensions
 
-- (id)initWithXMLElement:(GPXXMLElement *)element parent:(GPXElement *)parent
-{
+- (id)initWithXMLElement:(GPXXMLElement *)element parent:(GPXElement *)parent {
     self = [super initWithXMLElement:element parent:parent];
+    
     if (self) {
         _activityTypeString = [self textForSingleChildElementNamed:@"trailsio:activity" xmlElement:element];
     }
+    
     return self;
 }
 
@@ -29,23 +30,21 @@
     if (!_activityTypeString.length) {
         return nil;
     }
+    
     return _activityTypeString;
 }
 
 #pragma mark - tag
 
-+ (NSString *)tagName
-{
++ (NSString *)tagName {
     return @"trailsio:MetaDataExtension";
 }
 
 #pragma mark - GPX
 
-- (void)addChildTagToGpx:(NSMutableString *)gpx indentationLevel:(NSInteger)indentationLevel
-{
+- (void)addChildTagToGpx:(NSMutableString *)gpx indentationLevel:(NSInteger)indentationLevel {
     [super addChildTagToGpx:gpx indentationLevel:indentationLevel];
     [self gpx:gpx addPropertyForValue:_activityTypeString tagName:@"trailsio:activity" indentationLevel:indentationLevel];
 }
-
 
 @end
