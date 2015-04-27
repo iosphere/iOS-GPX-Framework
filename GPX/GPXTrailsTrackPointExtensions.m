@@ -9,6 +9,9 @@
 #import "GPXTrailsTrackPointExtensions.h"
 #import "GPXElementSubclass.h"
 
+NSString *const kElementHorizontalAcc = @"trailsio:hacc";
+NSString *const kElementVerticalAcc = @"trailsio:vacc";
+
 @interface GPXTrailsTrackPointExtensions ()
 
 @property (nonatomic) NSString *horizontalAccuracyString;
@@ -22,8 +25,8 @@
     self = [super initWithXMLElement:element parent:parent];
     
     if (self) {
-        _horizontalAccuracyString = [self textForSingleChildElementNamed:@"trailsio:hacc" xmlElement:element];
-        _verticalAccuracyString = [self textForSingleChildElementNamed:@"trailsio:vacc" xmlElement:element];
+        _horizontalAccuracyString = [self textForSingleChildElementNamed:kElementHorizontalAcc xmlElement:element];
+        _verticalAccuracyString = [self textForSingleChildElementNamed:kElementVerticalAcc xmlElement:element];
     }
     
     return self;
@@ -64,8 +67,8 @@
 
 - (void)addChildTagToGpx:(NSMutableString *)gpx indentationLevel:(NSInteger)indentationLevel {
     [super addChildTagToGpx:gpx indentationLevel:indentationLevel];
-    [self gpx:gpx addPropertyForValue:_horizontalAccuracyString tagName:@"trailsio:hacc" indentationLevel:indentationLevel];
-    [self gpx:gpx addPropertyForValue:_verticalAccuracyString tagName:@"trailsio:vacc" indentationLevel:indentationLevel];
+    [self gpx:gpx addPropertyForValue:_horizontalAccuracyString tagName:kElementHorizontalAcc indentationLevel:indentationLevel];
+    [self gpx:gpx addPropertyForValue:_verticalAccuracyString tagName:kElementVerticalAcc indentationLevel:indentationLevel];
 }
 
 @end

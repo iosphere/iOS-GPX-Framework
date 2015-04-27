@@ -9,6 +9,8 @@
 #import "GPXTrailsMetaDataExtensions.h"
 #import "GPXElementSubclass.h"
 
+NSString *const kElementActivity = @"trailsio:activity";
+
 @interface GPXTrailsMetaDataExtensions ()
 
 @end
@@ -19,7 +21,7 @@
     self = [super initWithXMLElement:element parent:parent];
     
     if (self) {
-        _activityTypeString = [self textForSingleChildElementNamed:@"trailsio:activity" xmlElement:element];
+        _activityTypeString = [self textForSingleChildElementNamed:kElementActivity xmlElement:element];
     }
     
     return self;
@@ -44,7 +46,7 @@
 
 - (void)addChildTagToGpx:(NSMutableString *)gpx indentationLevel:(NSInteger)indentationLevel {
     [super addChildTagToGpx:gpx indentationLevel:indentationLevel];
-    [self gpx:gpx addPropertyForValue:_activityTypeString tagName:@"trailsio:activity" indentationLevel:indentationLevel];
+    [self gpx:gpx addPropertyForValue:_activityTypeString tagName:kElementActivity indentationLevel:indentationLevel];
 }
 
 @end
