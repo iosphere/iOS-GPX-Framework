@@ -9,6 +9,8 @@
 #import "GPXTrackPointExtensions.h"
 #import "GPXElementSubclass.h"
 
+NSString *const kGPXTrackPointExtensionsTagName = @"gpxtpx:TrackPointExtension";
+
 @interface GPXTrackPointExtensions ()
 
 @property (nonatomic, strong) NSString *heartRateString;
@@ -85,7 +87,7 @@
 
 + (NSString *)tagName
 {
-    return @"gpxtpx:TrackPointExtension";
+    return kGPXTrackPointExtensionsTagName;
 }
 
 #pragma mark - GPX
