@@ -41,21 +41,21 @@ NSString *const kTrackPointExtensionsTagName = @"trailsio:TrackPointExtension";
     if (!horizontalAccuracy) {
         return;
     }
-    _horizontalAccuracyString = [NSString stringWithFormat:@"%.2f", [horizontalAccuracy floatValue]];
+    _horizontalAccuracyString = [NSString stringWithFormat:@"%.2f", [horizontalAccuracy doubleValue]];
 }
 
 - (void)setVerticalAccuracy:(NSNumber *)verticalAccuracy {
     if (!verticalAccuracy) {
         return;
     }
-    _verticalAccuracyString = [NSString stringWithFormat:@"%.2f", [verticalAccuracy floatValue]];
+    _verticalAccuracyString = [NSString stringWithFormat:@"%.2f", [verticalAccuracy doubleValue]];
 }
 
 - (void)setStepCount:(NSNumber *)stepCount {
     if (!stepCount) {
         return;
     }
-    _stepCountString = [NSString stringWithFormat:@"%.0f", [stepCount floatValue]];
+    _stepCountString = [NSString stringWithFormat:@"%.0f", [stepCount doubleValue]];
 }
 
 - (NSNumber *)horizontalAccuracy {
