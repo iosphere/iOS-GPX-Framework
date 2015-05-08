@@ -119,6 +119,13 @@
     _elevationValue = [GPXType valueForDecimal:elevation];
 }
 
+- (NSNumber *)elevationBoxed {
+    if (!_elevationValue.length) {
+        return nil;
+    }
+    return @([self elevation]);
+}
+
 - (NSDate *)time
 {
     return [GPXType dateTime:_timeValue];

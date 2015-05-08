@@ -24,6 +24,9 @@
 /** Elevation (in meters) of the point. */
 @property (nonatomic) CLLocationDistance elevation;
 
+/// Returns nil if elevation is not present in waypoint information.
+@property (nonatomic, readonly) NSNumber *elevationBoxed;
+
 /** Creation/modification timestamp for element. 
     Date and time in are in Univeral Coordinated Time (UTC), not local time! 
     Conforms to ISO 8601 specification for date/time representation.
