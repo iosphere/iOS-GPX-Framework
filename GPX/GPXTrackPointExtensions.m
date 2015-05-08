@@ -57,28 +57,28 @@
     if (!_heartRateString.length) {
         return nil;
     }
-    return [NSNumber numberWithFloat:[GPXType decimal:_heartRateString]];
+    return [NSNumber numberWithDouble:[GPXType decimal:_heartRateString]];
 }
 
 - (NSNumber *)cadence {
     if (!_cadenceString.length) {
         return nil;
     }
-    return [NSNumber numberWithFloat:[GPXType nonNegativeInteger:_cadenceString]];
+    return [NSNumber numberWithInteger:[GPXType nonNegativeInteger:_cadenceString]];
 }
 
 - (NSNumber *)speed {
     if (!_speedString.length) {
         return nil;
     }
-    return [NSNumber numberWithFloat:[GPXType decimal:_speedString]];
+    return [NSNumber numberWithDouble:[GPXType decimal:_speedString]];
 }
 
 - (NSNumber *)course {
     if (!_courseString.length) {
         return nil;
     }
-    return [NSNumber numberWithFloat:[GPXType decimal:_courseString]];
+    return [NSNumber numberWithDouble:[GPXType decimal:_courseString]];
 }
 
 #pragma mark - tag

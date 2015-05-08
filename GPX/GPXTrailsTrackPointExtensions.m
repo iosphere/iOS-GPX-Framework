@@ -63,7 +63,7 @@ NSString *const kTrackPointExtensionsTagName = @"trailsio:TrackPointExtension";
         return nil;
     }
     
-    return [NSNumber numberWithFloat:[GPXType decimal:_horizontalAccuracyString]];
+    return [NSNumber numberWithDouble:[GPXType decimal:_horizontalAccuracyString]];
 }
 
 - (NSNumber *)verticalAccuracy {
@@ -71,7 +71,7 @@ NSString *const kTrackPointExtensionsTagName = @"trailsio:TrackPointExtension";
         return nil;
     }
 
-    return [NSNumber numberWithFloat:[GPXType decimal:_verticalAccuracyString]];
+    return [NSNumber numberWithDouble:[GPXType decimal:_verticalAccuracyString]];
 }
 
 - (NSNumber *)stepCount {
@@ -79,7 +79,7 @@ NSString *const kTrackPointExtensionsTagName = @"trailsio:TrackPointExtension";
         return nil;
     }
     
-    return [NSNumber numberWithFloat:[GPXType decimal:_stepCountString]];
+    return [NSNumber numberWithDouble:[GPXType decimal:_stepCountString]];
 }
 
 #pragma mark - tag
