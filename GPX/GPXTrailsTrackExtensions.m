@@ -10,7 +10,6 @@
 #import "GPXElementSubclass.h"
 
 NSString *const kElementActivity = @"trailsio:activity";
-NSString *const kTagName = @"trailsio:TrackExtension";
 
 @interface GPXTrailsTrackExtensions ()
 
@@ -40,7 +39,7 @@ NSString *const kTagName = @"trailsio:TrackExtension";
 #pragma mark - tag
 
 + (NSString *)tagName {
-    return kTagName;
+    return @"trailsio:TrackExtension";
 }
 
 #pragma mark - GPX

@@ -12,7 +12,6 @@
 NSString *const kElementHorizontalAcc = @"trailsio:hacc";
 NSString *const kElementVerticalAcc = @"trailsio:vacc";
 NSString *const kElementSteps = @"trailsio:steps";
-NSString *const kTagName = @"trailsio:TrackPointExtension";
 
 @interface GPXTrailsTrackPointExtensions ()
 
@@ -76,7 +75,7 @@ NSString *const kTagName = @"trailsio:TrackPointExtension";
 #pragma mark - tag
 
 + (NSString *)tagName {
-    return kTagName;
+    return @"trailsio:TrackPointExtension";
 }
 
 #pragma mark - GPX
