@@ -37,21 +37,33 @@ NSString *const kGPXTrackPointExtensionsTagName = @"gpxtpx:TrackPointExtension";
 #pragma mark - Public methods
 - (void)setHeartRate:(NSNumber *)heartRate
 {
+    if (!heartRate) {
+        return;
+    }
     _heartRateString = [NSString stringWithFormat:@"%f", [heartRate doubleValue]];
 }
 
 - (void)setCadence:(NSNumber *)cadence
 {
+    if (!cadence) {
+        return;
+    }
     _cadenceString = [NSString stringWithFormat:@"%ud", [cadence unsignedIntValue]];
 }
 
 - (void)setSpeed:(NSNumber *)speed
 {
+    if (!speed) {
+        return;
+    }
     _speedString = [NSString stringWithFormat:@"%f", [speed doubleValue]];
 }
 
 - (void)setCourse:(NSNumber *)course
 {
+    if (!course) {
+        return;
+    }
     _courseString = [NSString stringWithFormat:@"%f", [course doubleValue]];
 }
 
