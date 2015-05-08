@@ -11,11 +11,13 @@
 
 NSString *const kElementHorizontalAcc = @"trailsio:hacc";
 NSString *const kElementVerticalAcc = @"trailsio:vacc";
+NSString *const kElementSteps = @"trailsio:steps";
 
 @interface GPXTrailsTrackPointExtensions ()
 
 @property (nonatomic) NSString *horizontalAccuracyString;
 @property (nonatomic) NSString *verticalAccuracyString;
+@property (nonatomic) NSString *stepCountString;
 
 @end
 
@@ -27,6 +29,7 @@ NSString *const kElementVerticalAcc = @"trailsio:vacc";
     if (self) {
         _horizontalAccuracyString = [self textForSingleChildElementNamed:kElementHorizontalAcc xmlElement:element];
         _verticalAccuracyString = [self textForSingleChildElementNamed:kElementVerticalAcc xmlElement:element];
+        _stepCountString = [self textForSingleChildElementNamed:kElementSteps xmlElement:element];
     }
     
     return self;
@@ -41,6 +44,10 @@ NSString *const kElementVerticalAcc = @"trailsio:vacc";
     _verticalAccuracyString = [NSString stringWithFormat:@"%.2f", [verticalAccuracy doubleValue]];
 }
 
+- (void)setStepCount:(NSNumber *)stepCount {
+    _stepCountString = [NSString stringWithFormat:@"%.0f", [stepCount doubleValue]];
+}
+
 - (NSNumber *)horizontalAccuracy {
     if (!_horizontalAccuracyString.length) {
         return nil;
@@ -53,8 +60,16 @@ NSString *const kElementVerticalAcc = @"trailsio:vacc";
     if (!_verticalAccuracyString.length) {
         return nil;
     }
-    
+
     return [NSNumber numberWithFloat:[GPXType decimal:_verticalAccuracyString]];
+}
+
+- (NSNumber *)stepCount {
+    if (!_stepCountString.length) {
+        return nil;
+    }
+    
+    return [NSNumber numberWithFloat:[GPXType decimal:_stepCountString]];
 }
 
 #pragma mark - tag
@@ -69,6 +84,7 @@ NSString *const kElementVerticalAcc = @"trailsio:vacc";
     [super addChildTagToGpx:gpx indentationLevel:indentationLevel];
     [self gpx:gpx addPropertyForValue:_horizontalAccuracyString tagName:kElementHorizontalAcc indentationLevel:indentationLevel];
     [self gpx:gpx addPropertyForValue:_verticalAccuracyString tagName:kElementVerticalAcc indentationLevel:indentationLevel];
+    [self gpx:gpx addPropertyForValue:_stepCountString tagName:kElementSteps indentationLevel:indentationLevel];
 }
 
 @end

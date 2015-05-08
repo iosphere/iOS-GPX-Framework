@@ -8,6 +8,8 @@
 
 #import "GPXExtensions.h"
 #import "GPXElementSubclass.h"
+#import "GPXTrailsTrackExtensions.h"
+#import "GPXTrailsTrackPointExtensions.h"
 
 @implementation GPXExtensions
 
@@ -18,6 +20,8 @@
     self = [super initWithXMLElement:element parent:parent];
     if (self) {
         _garminExtensions = (GPXTrackPointExtensions *)[self childElementOfClass:[GPXTrackPointExtensions class] xmlElement:element];
+        _trailsTrackExtensions = (GPXTrailsTrackExtensions *)[self childElementOfClass:[GPXTrailsTrackExtensions class] xmlElement:element];
+        _trailsTrackPointExtensions = (GPXTrailsTrackPointExtensions *)[self childElementOfClass:[GPXTrailsTrackPointExtensions class] xmlElement:element];
     }
     return self;
 }

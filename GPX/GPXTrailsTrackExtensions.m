@@ -1,21 +1,21 @@
 //
-//  GPXTrailsMetaDataExtensions.m
+//  GPXTrailsTrackExtensions.m
 //  GPX
 //
 //  Created by Jan Weitz on 27.04.2015
 //
 //
 
-#import "GPXTrailsMetaDataExtensions.h"
+#import "GPXTrailsTrackExtensions.h"
 #import "GPXElementSubclass.h"
 
 NSString *const kElementActivity = @"trailsio:activity";
 
-@interface GPXTrailsMetaDataExtensions ()
+@interface GPXTrailsTrackExtensions ()
 
 @end
 
-@implementation GPXTrailsMetaDataExtensions
+@implementation GPXTrailsTrackExtensions
 
 - (id)initWithXMLElement:(GPXXMLElement *)element parent:(GPXElement *)parent {
     self = [super initWithXMLElement:element parent:parent];
@@ -39,7 +39,7 @@ NSString *const kElementActivity = @"trailsio:activity";
 #pragma mark - tag
 
 + (NSString *)tagName {
-    return @"trailsio:MetaDataExtension";
+    return @"trailsio:TrackExtension";
 }
 
 #pragma mark - GPX

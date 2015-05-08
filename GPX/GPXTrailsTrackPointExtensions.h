@@ -13,5 +13,6 @@
 /* see: https://trails.io/GPX/1/0/trails_1.0.xsd */
 @property (nonatomic) NSNumber *horizontalAccuracy;
 @property (nonatomic) NSNumber *verticalAccuracy;
+@property (nonatomic) NSNumber *stepCount;
 
 @end
