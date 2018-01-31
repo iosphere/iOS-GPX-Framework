@@ -132,7 +132,7 @@
 + (NSString *)valueForDgpsStation:(NSInteger)dgpsStation
 {
     if (0 <= dgpsStation && dgpsStation <= 1023) {
-        return [NSString stringWithFormat:@"%d", dgpsStation];
+        return [NSString stringWithFormat:@"%ld", (long)dgpsStation];
     }
     
     return @"0";
@@ -239,7 +239,7 @@
 + (NSString *)valueForNonNegativeInteger:(NSInteger)integer
 {
     if (integer >= 0) {
-        return [NSString stringWithFormat:@"%d", integer];
+        return [NSString stringWithFormat:@"%ld", (long)integer];
     }
     
     return @"0";

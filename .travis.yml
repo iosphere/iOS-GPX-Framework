@@ -1,0 +1,8 @@
+language: objective-c
+
+# before_install:
+#     - brew update
+#     - brew upgrade xctool
+
+script:
+    - xctool -workspace GPX.xcworkspace -scheme "GPX" -configuration Release -sdk iphonesimulator test

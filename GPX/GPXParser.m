@@ -10,7 +10,7 @@
 #import "GPXConst.h"
 #import "GPXElementSubclass.h"
 #import "GPXRoot.h"
-#import "GPXXML.h"
+#import "TBXML.h"
 
 @implementation GPXParser
 
@@ -19,12 +19,9 @@
 
 + (GPXRoot *)parseGPXAtURL:(NSURL *)url
 {
-    GPXXML *xml = [[GPXXML alloc] initWithURL:url];
-    if (xml.rootXMLElement) {
-        return [[GPXRoot alloc] initWithXMLElement:xml.rootXMLElement parent:nil];
-    }
+    NSData *data = [NSData dataWithContentsOfURL:url];
     
-    return nil;
+    return  [self parseGPXWithData:data];
 }
 
 + (GPXRoot *)parseGPXAtPath:(NSString *)path
@@ -35,7 +32,7 @@
 
 + (GPXRoot *)parseGPXWithString:(NSString*)string
 {
-    GPXXML *xml = [[GPXXML alloc] initWithXMLString:string];
+    TBXML *xml = [[TBXML alloc] initWithXMLString:string error:nil];
     if (xml.rootXMLElement) {
         return [[GPXRoot alloc] initWithXMLElement:xml.rootXMLElement parent:nil];
     }
@@ -45,7 +42,7 @@
 
 + (GPXRoot *)parseGPXWithData:(NSData*)data
 {
-    GPXXML *xml = [[GPXXML alloc] initWithXMLData:data];
+    TBXML *xml = [[TBXML alloc] initWithXMLData:data error:nil];
     if (xml.rootXMLElement) {
         return [[GPXRoot alloc] initWithXMLElement:xml.rootXMLElement parent:nil];
     }

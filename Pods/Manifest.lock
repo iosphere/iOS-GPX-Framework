@@ -1,0 +1,17 @@
+PODS:
+  - iOS-GPX-Framework (0.0.2):
+    - TBXML (~> 1.5)
+  - TBXML (1.5)
+
+DEPENDENCIES:
+  - iOS-GPX-Framework (from `.`)
+
+EXTERNAL SOURCES:
+  iOS-GPX-Framework:
+    :path: .
+
+SPEC CHECKSUMS:
+  iOS-GPX-Framework: b895ceb4684d9359a070e91efb67379a23a3805e
+  TBXML: a279440030ba55c40e1455cafba3b0a44e1963d4
+
+COCOAPODS: 0.33.1

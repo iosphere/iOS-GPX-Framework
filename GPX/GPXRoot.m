@@ -47,7 +47,7 @@
     return self;
 }
 
-- (id)initWithXMLElement:(GPXXMLElement *)element parent:(GPXElement *)parent
+- (id)initWithXMLElement:(TBXMLElement *)element parent:(GPXElement *)parent
 {
     self = [super initWithXMLElement:element parent:parent];
     if (self) {
@@ -229,7 +229,7 @@
     }
     
     [gpx appendString:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"];
-    [gpx appendString:[NSString stringWithFormat:@"%@%<%@%@>\r\n"
+    [gpx appendString:[NSString stringWithFormat:@"%@<%@%@>\r\n"
                        , [self indentForIndentationLevel:indentationLevel]
                        , [[self class] tagName]
                        , attribute
