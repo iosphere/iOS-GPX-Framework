@@ -53,7 +53,7 @@
 
 #pragma mark - Instance
 
-- (id)initWithXMLElement:(GPXXMLElement *)element parent:(GPXElement *)parent
+- (id)initWithXMLElement:(TBXMLElement *)element parent:(GPXElement *)parent
 {
     self = [super initWithXMLElement:element parent:parent];
     if (self) {
@@ -288,7 +288,7 @@
         [attribute appendFormat:@" lon=\"%@\"", _longitudeValue];
     }
     
-    [gpx appendString:[NSString stringWithFormat:@"%@%<%@%@>\r\n"
+    [gpx appendString:[NSString stringWithFormat:@"%@<%@%@>\r\n"
                        , [self indentForIndentationLevel:indentationLevel]
                        , [[self class] tagName]
                        , attribute

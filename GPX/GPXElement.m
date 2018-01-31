@@ -31,7 +31,7 @@
 
 #pragma mark - Instance
 
-- (id)initWithXMLElement:(GPXXMLElement *)element parent:(GPXElement *)parent
+- (id)initWithXMLElement:(TBXMLElement *)element parent:(GPXElement *)parent
 {
     self = [super init];
     if (self) {
@@ -48,14 +48,14 @@
 
 #pragma mark - Elements
 
-- (NSString *)valueOfAttributeNamed:(NSString *)name xmlElement:(GPXXMLElement*)element
+- (NSString *)valueOfAttributeNamed:(NSString *)name xmlElement:(TBXMLElement*)element
 {
     return [self valueOfAttributeNamed:name xmlElement:element required:NO];
 }
 
-- (NSString *)valueOfAttributeNamed:(NSString *)name xmlElement:(GPXXMLElement*)element required:(BOOL)required
+- (NSString *)valueOfAttributeNamed:(NSString *)name xmlElement:(TBXMLElement*)element required:(BOOL)required
 {
-    NSString *value = [GPXXML valueOfAttributeNamed:name forElement:element];
+    NSString *value = [TBXML valueOfAttributeNamed:name forElement:element];
     
     if (!value && required) {
         NSString *description = [NSString stringWithFormat:@"%@ element require %@ attribute.", [[self class] tagName], name];
@@ -68,16 +68,16 @@
 }
 
 
-- (NSString *)textForSingleChildElementNamed:(NSString *)name xmlElement:(GPXXMLElement *)element
+- (NSString *)textForSingleChildElementNamed:(NSString *)name xmlElement:(TBXMLElement *)element
 {
     return [self textForSingleChildElementNamed:name xmlElement:element required:NO];
 }
 
-- (NSString *)textForSingleChildElementNamed:(NSString *)name xmlElement:(GPXXMLElement *)element required:(BOOL)required
+- (NSString *)textForSingleChildElementNamed:(NSString *)name xmlElement:(TBXMLElement *)element required:(BOOL)required
 {
-    GPXXMLElement *el = [GPXXML childElementNamed:name parentElement:element];
+    TBXMLElement *el = [TBXML childElementNamed:name parentElement:element];
     if (el) {
-        return [GPXXML textForElement:el];
+        return [TBXML textForElement:el];
     } else {
         if (required) {
             NSString *description = [NSString stringWithFormat:@"%@ element require %@ element.", [[self class] tagName], name];
@@ -91,19 +91,19 @@
     return nil;
 }
 
-- (GPXElement *)childElementOfClass:(Class)class xmlElement:(GPXXMLElement *)element
+- (GPXElement *)childElementOfClass:(Class)class xmlElement:(TBXMLElement *)element
 {
     return [self childElementOfClass:class xmlElement:element required:NO];
 }
 
-- (GPXElement *)childElementOfClass:(Class)class xmlElement:(GPXXMLElement *)element required:(BOOL)required
+- (GPXElement *)childElementOfClass:(Class)class xmlElement:(TBXMLElement *)element required:(BOOL)required
 {
     GPXElement *firstElement;
-    GPXXMLElement *el = [GPXXML childElementNamed:[class tagName] parentElement:element];
+    TBXMLElement *el = [TBXML childElementNamed:[class tagName] parentElement:element];
     if (el) {
         firstElement = [[class alloc] initWithXMLElement:el parent:self];
         
-        GPXXMLElement *secondElement = [GPXXML nextSiblingNamed:[class tagName] searchFromElement:el];
+        TBXMLElement *secondElement = [TBXML nextSiblingNamed:[class tagName] searchFromElement:el];
         if (secondElement) {
             NSString *description = [NSString stringWithFormat:@"%@ element has more than two %@ elements.", [[self class] tagName], [class tagName]];
             
@@ -126,19 +126,19 @@
     return firstElement;
 }
 
-- (GPXElement *)childElementNamed:(NSString *)name class:(Class)class xmlElement:(GPXXMLElement *)element
+- (GPXElement *)childElementNamed:(NSString *)name class:(Class)class xmlElement:(TBXMLElement *)element
 {
     return [self childElementNamed:name class:class xmlElement:element required:NO];
 }
 
-- (GPXElement *)childElementNamed:(NSString *)name class:(Class)class xmlElement:(GPXXMLElement *)element required:(BOOL)required
+- (GPXElement *)childElementNamed:(NSString *)name class:(Class)class xmlElement:(TBXMLElement *)element required:(BOOL)required
 {
     GPXElement *firstElement;
-    GPXXMLElement *el = [GPXXML childElementNamed:name parentElement:element];
+    TBXMLElement *el = [TBXML childElementNamed:name parentElement:element];
     if (el) {
         firstElement = [[class alloc] initWithXMLElement:el parent:self];
         
-        GPXXMLElement *secondElement = [GPXXML nextSiblingNamed:name searchFromElement:el];
+        TBXMLElement *secondElement = [TBXML nextSiblingNamed:name searchFromElement:el];
         if (secondElement) {
             NSString *description = [NSString stringWithFormat:@"%@ element has more than two %@ elements.", [[self class] tagName], [class tagName]];
             
@@ -161,12 +161,12 @@
     return firstElement;
 }
 
-- (void)childElementsOfClass:(Class)class xmlElement:(GPXXMLElement *)element eachBlock:(void (^)(GPXElement *element))eachBlock
+- (void)childElementsOfClass:(Class)class xmlElement:(TBXMLElement *)element eachBlock:(void (^)(GPXElement *element))eachBlock
 {
-    GPXXMLElement *el = [GPXXML childElementNamed:[class tagName] parentElement:element];
+    TBXMLElement *el = [TBXML childElementNamed:[class tagName] parentElement:element];
     while (el != nil) {
         eachBlock([[class alloc] initWithXMLElement:el parent:self]);
-        el = [GPXXML nextSiblingNamed:[class tagName] searchFromElement:el];
+        el = [TBXML nextSiblingNamed:[class tagName] searchFromElement:el];
     }
 }
 
@@ -188,7 +188,7 @@
 
 - (void)addOpenTagToGpx:(NSMutableString *)gpx indentationLevel:(NSInteger)indentationLevel
 {
-    [gpx appendString:[NSString stringWithFormat:@"%@%<%@>\r\n"
+    [gpx appendString:[NSString stringWithFormat:@"%@<%@>\r\n"
                        , [self indentForIndentationLevel:indentationLevel]
                        , [[self class] tagName]
                        ]
@@ -202,7 +202,7 @@
 
 - (void)addCloseTagToGpx:(NSMutableString *)gpx indentationLevel:(NSInteger)indentationLevel
 {
-    [gpx appendString:[NSString stringWithFormat:@"%@%</%@>\r\n"
+    [gpx appendString:[NSString stringWithFormat:@"%@</%@>\r\n"
                        , [self indentForIndentationLevel:indentationLevel]
                        , [[self class] tagName]
                        ]

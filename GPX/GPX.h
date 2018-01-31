@@ -6,23 +6,24 @@
 //  Copyright (c) 2012 NextBusinessSystem Co., Ltd. All rights reserved.
 //
 
-#import <GPX/GPXParser.h>
-#import <GPX/GPXConst.h>
-#import <GPX/GPXType.h>
-#import <GPX/GPXRoot.h>
-#import <GPX/GPXMetadata.h>
-#import <GPX/GPXWaypoint.h>
-#import <GPX/GPXRoutePoint.h>
-#import <GPX/GPXTrackPoint.h>
-#import <GPX/GPXRoute.h>
-#import <GPX/GPXTrack.h>
-#import <GPX/GPXExtensions.h>
-#import <GPX/GPXTrackSegment.h>
-#import <GPX/GPXCopyright.h>
-#import <GPX/GPXLink.h>
-#import <GPX/GPXEmail.h>
-#import <GPX/GPXPerson.h>
-#import <GPX/GPXAuthor.h>
-#import <GPX/GPXPoint.h>
-#import <GPX/GPXPointSegment.h>
-#import <GPX/GPXBounds.h>
+#import <UIKit/UIKit.h>
+#import "GPXParser.h"
+#import "GPXConst.h"
+#import "GPXType.h"
+#import "GPXRoot.h"
+#import "GPXMetadata.h"
+#import "GPXWaypoint.h"
+#import "GPXRoutePoint.h"
+#import "GPXTrackPoint.h"
+#import "GPXRoute.h"
+#import "GPXTrack.h"
+#import "GPXExtensions.h"
+#import "GPXTrackSegment.h"
+#import "GPXCopyright.h"
+#import "GPXLink.h"
+#import "GPXEmail.h"
+#import "GPXPerson.h"
+#import "GPXAuthor.h"
+#import "GPXPoint.h"
+#import "GPXPointSegment.h"
+#import "GPXBounds.h"

@@ -7,7 +7,7 @@
 //
 
 #import "GPXElement.h"
-#import "GPXXML.h"
+#import "TBXML.h"
 
 @interface GPXElement ()
 
@@ -19,19 +19,19 @@
 
 // Initializing a Element
 
-- (id)initWithXMLElement:(GPXXMLElement *)element parent:(GPXElement *)parent;
+- (id)initWithXMLElement:(TBXMLElement *)element parent:(GPXElement *)parent;
 
 
 // Parsing
-- (NSString *)valueOfAttributeNamed:(NSString *)name xmlElement:(GPXXMLElement*)element;
-- (NSString *)valueOfAttributeNamed:(NSString *)name xmlElement:(GPXXMLElement*)element required:(BOOL)required;
-- (NSString *)textForSingleChildElementNamed:(NSString *)name xmlElement:(GPXXMLElement *)element;
-- (NSString *)textForSingleChildElementNamed:(NSString *)name xmlElement:(GPXXMLElement *)element required:(BOOL)required;
-- (GPXElement *)childElementOfClass:(Class)class xmlElement:(GPXXMLElement *)element;
-- (GPXElement *)childElementOfClass:(Class)class xmlElement:(GPXXMLElement *)element required:(BOOL)required;
-- (GPXElement *)childElementNamed:(NSString *)name class:(Class)class xmlElement:(GPXXMLElement *)element;
-- (GPXElement *)childElementNamed:(NSString *)name class:(Class)class xmlElement:(GPXXMLElement *)element required:(BOOL)required;
-- (void)childElementsOfClass:(Class)class xmlElement:(GPXXMLElement *)element eachBlock:(void (^)(GPXElement *element))eachBlock;
+- (NSString *)valueOfAttributeNamed:(NSString *)name xmlElement:(TBXMLElement*)element;
+- (NSString *)valueOfAttributeNamed:(NSString *)name xmlElement:(TBXMLElement*)element required:(BOOL)required;
+- (NSString *)textForSingleChildElementNamed:(NSString *)name xmlElement:(TBXMLElement *)element;
+- (NSString *)textForSingleChildElementNamed:(NSString *)name xmlElement:(TBXMLElement *)element required:(BOOL)required;
+- (GPXElement *)childElementOfClass:(Class)class xmlElement:(TBXMLElement *)element;
+- (GPXElement *)childElementOfClass:(Class)class xmlElement:(TBXMLElement *)element required:(BOOL)required;
+- (GPXElement *)childElementNamed:(NSString *)name class:(Class)class xmlElement:(TBXMLElement *)element;
+- (GPXElement *)childElementNamed:(NSString *)name class:(Class)class xmlElement:(TBXMLElement *)element required:(BOOL)required;
+- (void)childElementsOfClass:(Class)class xmlElement:(TBXMLElement *)element eachBlock:(void (^)(GPXElement *element))eachBlock;
 
 
 // Generating

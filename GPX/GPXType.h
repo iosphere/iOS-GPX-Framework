@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 NextBusinessSystem Co., Ltd. All rights reserved.
 //
 
-typedef enum {
+typedef NS_ENUM(NSInteger, GPXFix) {
     GPXFixNone = 0,
     GPXFix2D,
     GPXFix3D,
     GPXFixDgps,
     GPXFixPps,
-} GPXFix;
+};
 
 
 /** Convinience methods for GPX Value types.
